@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import './cart.css'
 
 const Cart = ({ cart, setCart }) => {
+    const formatCurrency = (price) => {
+        return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+    };
     //incqty
     const incqty = (product) => {
         const exist = cart.find((x) => {
@@ -36,7 +39,9 @@ const Cart = ({ cart, setCart }) => {
         }
     }
     //Total price
-    const Totalprice = cart.reduce((price, item) => price + item.qty * item.Price, 0)
+    // const Totalprice = cart.reduce((price, item) => price + item.qty * item.Price, 0)
+    const Totalprice = cart.reduce((price, item) => price + item.qty * item.Price, 0);
+
 
     return (
         <>
@@ -68,13 +73,16 @@ const Cart = ({ cart, setCart }) => {
                                         <div className='info'>
                                             <h4>{curElm.Cat}</h4>
                                             <h3>{curElm.Title}</h3>
-                                            <p>Giá: {curElm.Price}</p>
+                                          
+                                            <p>Giá: {formatCurrency(curElm.Price)}</p>
+
                                             <div className='qty'>
                                                 <button className='incqty' onClick={() => incqty(curElm)}>+</button>
                                                 <input type='text' value={curElm.qty}></input>
                                                 <button className='decqty' onClick={() => decqty(curElm)}>-</button>
                                             </div>
-                                            <h4 className='subtotal'>Tổng: {curElm.Price * curElm.qty}</h4>
+                                            {/* <h4 className='subtotal'>Tổng: {curElm.Price * curElm.qty}</h4> */}
+                                            <h4 className='subtotal'>Tổng: {formatCurrency(curElm.Price * curElm.qty)}</h4>
 
                                         </div>
 
@@ -96,7 +104,9 @@ const Cart = ({ cart, setCart }) => {
                 {
                     cart.length > 0 &&
                     <>
-                        <h2 className='totalprice'>{Totalprice}</h2>
+                        {/* <h2 className='totalprice'>{Totalprice}</h2> */}
+                        <h2 className='totalprice'>{formatCurrency(Totalprice)}</h2>
+
                         <button className='checkout'>Thanh toán</button>
                     </>
                 }
