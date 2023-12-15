@@ -42,7 +42,8 @@ const Home = ({ detail, view, close, setClose, addtocart }) => {
                                                 <h4>{curElm.Title}</h4>
                                                 <h2>{curElm.Cat}</h2>
                                                 <p>Toàn bộ sản phẩm chất lượng đều là sản phẩm chính hãng</p>
-                                                <h3>{curElm.Price}</h3>
+                                                {/* Tiền việt */}
+                                                <h3>{parseInt(curElm.Price).toLocaleString()}</h3>
                                                 <button>Thêm giỏ hàng</button>
                                             </div>
 
@@ -207,7 +208,9 @@ const Home = ({ detail, view, close, setClose, addtocart }) => {
             {/* PRODUCT */}
 
             <div className='product'>
+                
                 <h2>Sản Phẩm Bán Chạy</h2>
+
                 <div className='container'>
                     {
                         Homeproduct.map((curElm) => {
@@ -232,7 +235,9 @@ const Home = ({ detail, view, close, setClose, addtocart }) => {
 
                                         <p>{curElm.Cat}</p>
                                         <h3>{curElm.Title}</h3>
-                                        <h5>{curElm.Price}</h5>
+
+                                        {/* Tiền việt */}
+                                        <h5>{parseInt(curElm.Price).toLocaleString()}</h5>
 
                                     </div>
 

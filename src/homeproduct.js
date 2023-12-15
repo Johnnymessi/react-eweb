@@ -29,7 +29,7 @@ const Homeproduct =
             id: 4,
             Title: 'Apple Watch Series 9',
             Cat: 'Watch',
-            Price: '5.200.000',
+            Price: '5200000',
             Img: './img/applewatchsr9.png'
         },
 
@@ -64,7 +64,6 @@ const Homeproduct =
             Price: '11000000',
             Img: './img/airm2.png'
         },
-
 
 
     ]

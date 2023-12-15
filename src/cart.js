@@ -39,10 +39,8 @@ const Cart = ({ cart, setCart }) => {
         }
     }
     //Total price
-    // const Totalprice = cart.reduce((price, item) => price + item.qty * item.Price, 0)
     const Totalprice = cart.reduce((price, item) => price + item.qty * item.Price, 0);
-
-
+    
     return (
         <>
             <div className='cartcontainer'>

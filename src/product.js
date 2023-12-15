@@ -46,7 +46,7 @@ const Product = ({ product, setProduct, detail, view, close, setClose, addtocart
                                                 <h2>{curElm.Cat}</h2>
                                                 <p>Toàn bộ sản phẩm chất lượng đều là sản phẩm chính hãng</p>
                                                 <h3>{curElm.Price}</h3>
-                                                <button>Thêm giỏ hàng</button>
+                                                <button onClick={() => addtocart(curElm)}>Thêm giỏ hàng</button>
                                             </div>
 
                                         </div>
@@ -110,7 +110,11 @@ const Product = ({ product, setProduct, detail, view, close, setClose, addtocart
 
                                                 <p>{curElm.Cat}</p>
                                                 <h3>{curElm.Title}</h3>
-                                                <h5>{curElm.Price}</h5>
+
+                                                {/* Tiền việt */}
+                                                {/* CT: parseInt(dữ liệu - data).toLocaleString() */}
+
+                                                <h5>{parseInt(curElm.Price).toLocaleString()}</h5>
 
                                             </div>
 
