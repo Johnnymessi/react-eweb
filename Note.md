@@ -2,9 +2,9 @@
 
 git add .
 git commit -m "Mô tả về sự thay đổi"
-git push origin <tên-branch>
+git push origin master/main
 
-<!-- Trong đó, <tên-branch> là tên của nhánh mà bạn muốn đẩy lên. Thông thường, nhánh mặc định là main hoặc master. -->
+
 
 npm install react-icons --save
 <!-- Chức năng: Thư viện này cung cấp một bộ sưu tập các biểu tượng (icons) được 
