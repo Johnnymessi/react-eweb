@@ -4,43 +4,66 @@ import { Link } from 'react-router-dom'
 import './cart.css'
 
 const Cart = ({ cart, setCart }) => {
+    // Hàm định dạng giá thành tiền Việt Nam
     const formatCurrency = (price) => {
+        // Sử dụng Intl.NumberFormat để định dạng giá tiền theo định dạng tiền tệ Việt Nam
         return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
     };
-    //incqty
+
+    // Mô tả: Đây là một hàm nhận vào một số (price) và trả về chuỗi biểu diễn giá tiền được định dạng theo định dạng tiền tệ Việt Nam.
+
+    // Hàm tăng số lượng sản phẩm trong giỏ hàng
     const incqty = (product) => {
+        // Tìm sản phẩm trong giỏ hàng dựa trên id
         const exist = cart.find((x) => {
             return x.id === product.id
         })
+        // Sử dụng setCart để cập nhật giỏ hàng, tăng số lượng sản phẩm lên 1
         setCart(cart.map((curElm) => {
             return curElm.id === product.id ? { ...exist, qty: exist.qty + 1 } : curElm
         }))
-    }
+    };
 
-    //decqty
+    // Mô tả: Hàm này tăng số lượng của một sản phẩm trong giỏ hàng lên 1. 
+    // Nếu sản phẩm không tồn tại trong giỏ hàng, thì không có gì thay đổi.
+
+    // Hàm giảm số lượng sản phẩm trong giỏ hàng
     const decqty = (product) => {
+        // Tìm sản phẩm trong giỏ hàng dựa trên id
         const exist = cart.find((x) => {
             return x.id === product.id
         })
+        // Sử dụng setCart để cập nhật giỏ hàng, giảm số lượng sản phẩm đi 1
         setCart(cart.map((curElm) => {
             return curElm.id === product.id ? { ...exist, qty: exist.qty - 1 } : curElm
         }))
-    }
-    //remove product
+    };
+
+    // Mô tả: Hàm này giảm số lượng của một sản phẩm trong giỏ hàng đi 1. Nếu số lượng là 1, thì không có gì thay đổi.
+
+    // Hàm xóa sản phẩm khỏi giỏ hàng
     const removeproduct = (product) => {
+        // Tìm sản phẩm trong giỏ hàng dựa trên id
         const exist = cart.find((x) => {
             return x.id === product.id
         })
 
+        // Nếu số lượng của sản phẩm lớn hơn 0, thì xóa sản phẩm khỏi giỏ hàng
         if (exist.qty > 0) {
             setCart(cart.filter((x) => {
                 return x.id !== product.id
             }))
         }
-    }
-    //Total price
+    };
+
+    // Mô tả: Hàm này xóa một sản phẩm khỏi giỏ hàng. Nếu số lượng của sản phẩm trong 
+    // giỏ hàng lớn hơn 0, thì sản phẩm sẽ được loại bỏ khỏi giỏ hàng.
+
+
+    // Tính tổng giá tiền của toàn bộ giỏ hàng
     const Totalprice = cart.reduce((price, item) => price + item.qty * item.Price, 0);
-    
+
+
     return (
         <>
             <div className='cartcontainer'>
@@ -71,7 +94,7 @@ const Cart = ({ cart, setCart }) => {
                                         <div className='info'>
                                             <h4>{curElm.Cat}</h4>
                                             <h3>{curElm.Title}</h3>
-                                          
+
                                             <p>Giá: {formatCurrency(curElm.Price)}</p>
 
                                             <div className='qty'>
