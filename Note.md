@@ -1,12 +1,32 @@
 # Tạo file Nav -> nav.js & nav.css
-Đưa Nav.js khai báo ở App.js
+
+git add .
+git commit -m "Mô tả về sự thay đổi"
+git push origin <tên-branch>
+
+<!-- Trong đó, <tên-branch> là tên của nhánh mà bạn muốn đẩy lên. Thông thường, nhánh mặc định là main hoặc master. -->
 
 npm install react-icons --save
+<!-- Chức năng: Thư viện này cung cấp một bộ sưu tập các biểu tượng (icons) được 
+thiết kế để sử dụng trong ứng dụng React.
+Sử dụng: Bạn có thể sử dụng react-icons để thêm các biểu tượng vào giao diện người
+dùng của bạn một cách thuận tiện, thường được sử dụng trong các nút, tiêu đề, hoặc 
+bất kỳ thành phần nào khác cần hiển thị một biểu tượng cụ thể. -->
 
 npm install react-router-dom
 
+<!-- Chức năng: Thư viện này giúp quản lý điều hướng (routing) 
+trong ứng dụng React. Nó cung cấp các thành phần như BrowserRouter,
+Route, và Link để bạn có thể dễ dàng thực hiện điều hướng giữa các trang và đối tượng trong ứng dụng React của bạn.
+Sử dụng: react-router-dom giúp bạn xác định các route cho các thành phần của bạn và quản lý trạng thái của địa chỉ URL. -->
+
 <!-- Tạo chức năng login logout -->
 npm install @auth0/auth0-react
+<!-- Chức năng: Thư viện này liên quan đến xác thực người dùng và quản lý phiên đăng nhập. Auth0 
+cung cấp các dịch vụ xác thực và quản lý người dùng, và @auth0/auth0-react giúp tích 
+hợp chúng vào ứng dụng React của bạn một cách dễ dàng.
+Sử dụng: Bạn có thể sử dụng Auth0 để xác thực người dùng, quản lý phiên đăng nhập, 
+và kiểm soát quyền truy cập. -->
 
 
 ## Quá trình hoạt động của ứng dụng:
